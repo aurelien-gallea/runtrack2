@@ -1,10 +1,10 @@
 <form method="get" action="index.php">
     <div>
-        <label for="largeur">Largeur</label>
+        <label for="largeur">Largeur(max conseillé: 10)</label>
         <input type="text" name="largeur" id="largeur">
     </div>
     <div>
-        <label for="hauteur">hauteur</label>
+        <label for="hauteur">hauteur(max conseillé: 20)</label>
         <input type="text" name="hauteur" id="hauteur">
     </div>
     <div>
