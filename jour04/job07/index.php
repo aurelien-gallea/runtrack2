@@ -16,7 +16,7 @@
 
 
 $ajout = "_";
-$ajoutFinal;
+$vide = "&nbsp ";
 if (isset($_GET['largeur']) || isset($_get['hauteur'])) {
 
     if ((int)$_GET['largeur'] != 0 && (int)$_GET['hauteur'] != 0) {
@@ -25,32 +25,19 @@ if (isset($_GET['largeur']) || isset($_get['hauteur'])) {
         
         for ($a=2; $a <= $_GET['hauteur']; $a++) { // triangle
             
-            echo "<div>/";
-            
             for ($i=2; $i <= $_GET['largeur']; $i++) { 
                 $ajout = $ajout . "_";
-                echo $ajout;
-                
-                
-                
+                $vide = $vide . "&nbsp ";
             }
-            $ajoutFinal = $ajout;
-            echo "\</div>";
+            echo "<div>/" .  $ajout . "\</div>";
         }
-
         
-
-        for ($a = $_GET['hauteur']; $a>=1; $a--) { // rectangle
+        for ($a = $_GET['hauteur']; $a>=2; $a--) { // rectangle
             
-            echo "<div>|";
-
-            for($i= $_GET['largeur']; $i>=2; $i--) {
-                $ajoutFinal = $ajout . "_";
-                echo $ajoutFinal;
-            }
-            echo "|</div>";
+            echo"<div>|". $vide . "|</div>";
         }
-
+        
+        echo "<div>|" .  $ajout . "|</div>";
     }
 }
 
