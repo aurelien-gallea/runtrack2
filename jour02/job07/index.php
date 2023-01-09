@@ -34,8 +34,7 @@ for ($i = $hauteur; $i > 1; $i--) {
         $hauteur--;
     } while ($hauteur >= 1);
     ?>\ </span>
-
-
+    
 <!--  un peu de style  -->
 <style>
     body {
