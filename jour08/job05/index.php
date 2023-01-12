@@ -11,13 +11,19 @@ if(!isset($_SESSION['compteur'])) { // compteur pour le match nul
 if(!isset($_SESSION['symbole'])) {
     $_SESSION['symbole'] = "X";   
 }
-if (isset($_POST['reset'])) { // réinitialisation de partie
+if (isset($_POST['reset'])) { // réinitialisation de partie avec le bouton
+    reinitialisation();
+}
+
+function reinitialisation() {
     foreach($_COOKIE as $cookie_name => $cookie_value){
         unset($_COOKIE[$cookie_name]);
         setcookie($cookie_name, '', time() - 36000);
     }
     $_SESSION['symbole'] = "X";
     $_SESSION['compteur'] = 0;
+    header("Refresh:3");
+    
 }
 // changements visuel des cases -------------------------------------
 
@@ -89,10 +95,13 @@ function rondGagne() {
 }
 function finDePartie() {
     if (croixGagne() == 1) {
+        reinitialisation();
         echo "X a gagné !";
     } else if( rondGagne() == 1) {
+        reinitialisation();
         echo "O a gagné !";
     } else if ($_SESSION['compteur'] >= 18) { // double incrémentation dûe au header("Refresh:0")
+        reinitialisation();
         echo "Match Nul !";
     }
 }
