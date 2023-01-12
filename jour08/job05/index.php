@@ -22,7 +22,7 @@ function reinitialisation() {
     }
     $_SESSION['symbole'] = "X";
     $_SESSION['compteur'] = 0;
-    header("Refresh:3");
+    header("Refresh:5");
     
 }
 // changements visuel des cases -------------------------------------
@@ -116,7 +116,7 @@ function finDePartie() {
     <title>Le morpion</title>
 </head>
 <body>
-    <h1>Le Morpion</h1>
+    <h1>Le M<span>o</span>rpi<span>o</span>n</h1>
 <form action="index.php" method="post">
     
     <table>
@@ -135,7 +135,7 @@ function finDePartie() {
             <td><button type="submit" <?php desactiver('c3') ?> name="c3" value="<?php affichage('c3') ?>"><?php affichage('c3') ?></button></td>
         </tr>
     </table>
-    <button type="submit" name="reset">Réinitialiser la partie</button>
+    <button type="submit" name="reset" id="reset">Réinitialiser la partie</button>
 </form>
 <h2><?php finDePartie() ?></h2>
 </body>
@@ -149,36 +149,57 @@ function finDePartie() {
     }
     body {
         text-align: center;
-        
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        letter-spacing: 1.8px;
+        background-color: #f7d7a8;
     }
-    tr,td {
-        border: 5px solid black;
+    td {
+        border: 4px solid black;
         border-collapse: collapse;
         height: 100px;
         width: 100px;
     }
     table {
         margin: 2rem auto;
-        width: 300px;
-        height: 300px;
+        border: 2px solid black;
         border-collapse: collapse;
-        background-color: silver;
+        background-color: #f1ab32;
     }
      table button {
         width: 100%;
         height: 100%;
         font-size: 5em;
         text-align: center;
-        background-color: silver;
-        border: none;
+        background-color: #f1ab32;
+        border: 0;
         
     }
     
     button[value="X"] {
-        color: blue;
+        color: #421b42;
     }
     button[value="O"] {
-        color: red;
+        color: #df3025;
+    }
+    #reset {
+        padding: 0.5em;
+        font-size: 1.5em;
+        border-radius: 0.3rem;
+        border: none;
+        font-family: serif;
+        font-weight: 300;
+        background: #f1ab32;
+        color:#f9fcfd;
+
+
+    }
+    h1 {
+        margin-top: 1rem;
+        color: #421b42;
+        font-size: 3em;
+    }
+    span {
+        color:#df3025;
     }
     h2 {
         margin-top: 3rem;
