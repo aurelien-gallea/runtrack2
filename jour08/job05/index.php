@@ -5,7 +5,7 @@ session_start();
 if(!isset($_COOKIE['count'])) { // compteur pour le match nul
     setcookie('count', 0, time()+36000);
 } 
-if(!isset($_SESSION['symbole'])) {
+if(!isset($_SESSION['symbole'])) { // création du symbole
     $_SESSION['symbole'] = "X";   
 }
 if (isset($_POST['reset'])) { // réinitialisation de partie avec le bouton
@@ -19,13 +19,11 @@ function reinitialisation() {
     }
     setcookie('count', 0, time()+36000);
     $_SESSION['symbole'] = "X";
-    header("Refresh:5");
-
-    
+    header("Refresh:5");  
 }
 // changements visuel des cases -------------------------------------
 
-function changerSymbole($case) {
+function changerSymbole($case) { // on change le symbole à chaque coup
     
     if ($_SESSION['symbole'] == 'X') {
 
@@ -40,10 +38,10 @@ function changerSymbole($case) {
     }
 }
 
-function affichage($case) {
+function affichage($case) { // on affiche dans la case le symbole
     if(isset($_COOKIE[$case])) echo $_COOKIE[$case];
 }
-function desactiver($case) {
+function desactiver($case) { // on desactive le bouton pour eviter un incrémentation
     if(isset($_COOKIE[$case])) echo "disabled";
 }
 // jeu -------------------------------------------------------------
@@ -102,8 +100,7 @@ function finDePartie() {
     } else if( rondGagne() == 1) {
         reinitialisation();
         echo "O a gagné !";
-    } else if (isset($_COOKIE['count']) && $_COOKIE['count'] == 9) { // double incrémentation dûe au header("Refresh:0")
-        reinitialisation();
+    } else if (isset($_COOKIE['count']) && $_COOKIE['count'] == 9) { // match nul
         echo "Match Nul !";
     }
 }
