@@ -101,6 +101,7 @@ function finDePartie() {
         reinitialisation();
         echo "O a gagné !";
     } else if (isset($_COOKIE['count']) && $_COOKIE['count'] == 9) { // match nul
+        reinitialisation();
         echo "Match Nul !";
     }
 }
