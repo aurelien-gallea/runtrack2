@@ -113,6 +113,7 @@ function finDePartie() {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Le morpion</title>
 </head>
 <body>
@@ -140,69 +141,3 @@ function finDePartie() {
 <h2><?php finDePartie() ?></h2>
 </body>
 </html>
-
-<style>
-    *, ::after,::before,body,html {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    body {
-        text-align: center;
-        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-        letter-spacing: 1.8px;
-        background-color: #f7d7a8;
-    }
-    td {
-        border: 4px solid black;
-        border-collapse: collapse;
-        height: 100px;
-        width: 100px;
-    }
-    table {
-        margin: 2rem auto;
-        border: 2px solid black;
-        border-collapse: collapse;
-        background-color: #f1ab32;
-    }
-     table button {
-        width: 100%;
-        height: 100%;
-        font-size: 5em;
-        text-align: center;
-        background-color: #f1ab32;
-        border: 0;
-        
-    }
-    
-    button[value="X"] {
-        color: #421b42;
-    }
-    button[value="O"] {
-        color: #df3025;
-    }
-    #reset {
-        padding: 0.5em;
-        font-size: 1.5em;
-        border-radius: 0.3rem;
-        border: none;
-        font-family: serif;
-        font-weight: 300;
-        background: #f1ab32;
-        color:#f9fcfd;
-
-
-    }
-    h1 {
-        margin-top: 1rem;
-        color: #421b42;
-        font-size: 3em;
-    }
-    span {
-        color:#df3025;
-    }
-    h2 {
-        margin-top: 3rem;
-        font-size: 3em;
-    }
-</style>
