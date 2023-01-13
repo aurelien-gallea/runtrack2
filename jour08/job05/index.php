@@ -2,12 +2,9 @@
 session_start();
 
 // création de partie ----------------------------------------------
-if(!isset($_SESSION['compteur'])) { // compteur pour le match nul
-    $_SESSION['compteur'] = 0;
-} else {
-    $_SESSION['compteur']++;
-}
-
+if(!isset($_COOKIE['count'])) { // compteur pour le match nul
+    setcookie('count', 0, time()+36000);
+} 
 if(!isset($_SESSION['symbole'])) {
     $_SESSION['symbole'] = "X";   
 }
@@ -20,9 +17,10 @@ function reinitialisation() {
         unset($_COOKIE[$cookie_name]);
         setcookie($cookie_name, '', time() - 36000);
     }
+    setcookie('count', 0, time()+36000);
     $_SESSION['symbole'] = "X";
-    $_SESSION['compteur'] = 0;
     header("Refresh:5");
+
     
 }
 // changements visuel des cases -------------------------------------
@@ -53,6 +51,10 @@ function coup($case) {
 
     if ( isset($_POST[$case]) && $_POST[$case] == "") {
         changerSymbole($case);
+        if(isset($_COOKIE['count'])) {
+            setcookie('count', $_COOKIE['count']+1, time()+36000);
+
+        }
     }
 }
 
@@ -100,7 +102,7 @@ function finDePartie() {
     } else if( rondGagne() == 1) {
         reinitialisation();
         echo "O a gagné !";
-    } else if ($_SESSION['compteur'] >= 18) { // double incrémentation dûe au header("Refresh:0")
+    } else if (isset($_COOKIE['count']) && $_COOKIE['count'] == 9) { // double incrémentation dûe au header("Refresh:0")
         reinitialisation();
         echo "Match Nul !";
     }
